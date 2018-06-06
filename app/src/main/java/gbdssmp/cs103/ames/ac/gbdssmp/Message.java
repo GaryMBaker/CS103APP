@@ -28,9 +28,16 @@ public class Message extends AppCompatActivity {
         // you already have yours).
         List<String> your_array_list = new ArrayList<String>();
 
-        for (int i=0; i<10; i++) {
-            your_array_list.add("foo");
-            your_array_list.add("bar");
+        for (int i=0; i<1; i++) {
+            your_array_list.add("Daniel D");
+            your_array_list.add("Pia");
+            your_array_list.add("Raj");
+            your_array_list.add("Misha V");
+            your_array_list.add("Jae J");
+            your_array_list.add("Siliva");
+            your_array_list.add("Gary B");
+            your_array_list.add("Shea P");
+            your_array_list.add("Goutham S");
         }
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your

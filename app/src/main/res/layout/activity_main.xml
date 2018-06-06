@@ -6,40 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
+    android:background="#fff"
     android:weightSum="2" >
 
     <ImageView
         android:id="@+id/amesLogo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:src="@drawable/collegelogo_transparent"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"/>
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"/>
 
     <TextView
+        android:id="@+id/textLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textLine"
-        android:layout_below="@+id/amesLogo"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:textColor="#000"
+        android:text="Get Connected"
         android:textAlignment="center"
-        android:textSize="16dp" />
-
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/liveChat"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/textLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Live Chat" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/chat" />
 
     <Button
         android:id="@+id/forum"
-        android:layout_toRightOf="@+id/liveChat"
-        android:layout_below="@id/textLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forums" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/textLine"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/liveChat"
+        android:background="@drawable/forum" />
 
 
 </RelativeLayout>

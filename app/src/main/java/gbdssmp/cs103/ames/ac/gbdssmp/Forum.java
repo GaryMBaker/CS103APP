@@ -27,9 +27,16 @@ public class Forum extends AppCompatActivity {
         // you already have yours).
         List<String> your_array_list = new ArrayList<String>();
 
-        for (int i=0; i<10; i++) {
-            your_array_list.add("bar");
-            your_array_list.add("foo");
+        for (int i=0; i<1; i++) {
+            your_array_list.add("Animation Techniques");
+            your_array_list.add("Student Social Events");
+            your_array_list.add("Android Discussion");
+            your_array_list.add("Web Development");
+            your_array_list.add("AR/VR");
+            your_array_list.add("Game Development");
+            your_array_list.add("UX Discussion");
+            your_array_list.add("Latest News");
+            your_array_list.add("Tutor Talk Back");
         }
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your
