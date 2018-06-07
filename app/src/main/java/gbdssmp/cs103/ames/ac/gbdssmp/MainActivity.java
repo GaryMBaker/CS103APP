@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         Button liveChat = (Button) findViewById(R.id.liveChat);
         liveChat.setOnClickListener(new View.OnClickListener() {
             @Override
