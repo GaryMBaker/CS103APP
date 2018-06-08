@@ -60,11 +60,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class); intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(),
-                        "Bye Bye " + username.getText().toString(), Toast.LENGTH_LONG).show();
-//
+                Toast.makeText(getApplicationContext(),"Bye Bye " + username.getText().toString(), Toast.LENGTH_LONG).show();
                 return;
             }
         });

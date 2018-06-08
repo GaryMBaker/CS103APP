@@ -29,7 +29,6 @@
         <activity android:name=".Message" />
         <activity android:name=".Forum" />
         <activity android:name=".Forums" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrationActivity"></activity>
     </application>
 

@@ -12,24 +12,36 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Forums extends AppCompatActivity {
 
-    Button sendBtn = (Button) findViewById(R.id.submitBtn);
-    EditText input = (EditText) findViewById(R.id.newPost);
+
+    private FloatingActionButton sendBtn;
+    private EditText input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forums);
 
+        sendBtn = (FloatingActionButton) findViewById(R.id.sendBtn);
+        input = (EditText) findViewById(R.id.input);
+
+        ///////////////////////////////////////////////////////////////////////////////
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference() .push()
-                        .setValue(new ChatMessage(input.getText().toString(), FirebaseAuth.getInstance()
-                                .getCurrentUser()
-                                .getDisplayName()));
-                input.setText("blah");
+            public void onClick(View view) {
+                if (!input.getText().toString().isEmpty()) {
+                    //Post a chat message - 1: Declare variables
+                    // Post a chat message - 2: Find references for UI widgets
+                    // Post a chat message - 3: Set click listener for the sendBtn
+                    //Check if the input field is not empty, send the message & delete it after sending out
+                    // Read the input field and push a new instance of ChatMessage to the Firebase database
+                    //Clear the input
+                    FirebaseDatabase.getInstance().getReference().push()
+                            .setValue(new ChatMessage(input.getText().toString(), FirebaseAuth.getInstance()
+                                    .getCurrentUser()
+                                    .getDisplayName()));
+                    input.setText("");
+                }
             }
         });
-
     }
 }
