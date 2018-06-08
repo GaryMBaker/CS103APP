@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "594268949172",
+    "firebase_url": "https://cs103chat.firebaseio.com",
+    "project_id": "cs103chat",
+    "storage_bucket": "cs103chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594268949172:android:f7733271125c2180",
+        "android_client_info": {
+          "package_name": "gbdssmp.cs103.ames.ac.gbdssmp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594268949172-97chs4eivjcdkt3iu23us5j2dmrsjhap.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "594268949172-97chs4eivjcdkt3iu23us5j2dmrsjhap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKIrPEJzeCCaVHXjVX4vGBcFTiX1Gzvd0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
