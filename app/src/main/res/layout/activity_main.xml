@@ -9,6 +9,12 @@
     android:background="#fff"
     android:weightSum="2" >
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logoutBtn"
+        android:text="Logout"/>
+
     <ImageView
         android:id="@+id/amesLogo"
         android:layout_width="match_parent"
@@ -47,6 +53,14 @@
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/liveChat"
         android:background="@drawable/forum" />
+
+
+    <TextView
+        android:layout_below="@+id/forum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userName"
+        android:text=""/>
 
 
 </RelativeLayout>
