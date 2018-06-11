@@ -45,6 +45,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         };
 
+        mAuth = FirebaseAuth.getInstance();
         loginFirebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -57,9 +58,12 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
             }
+
         };
 
         mAuth = FirebaseAuth.getInstance();
+
+
 
         mRegistration = findViewById(R.id.registration);
         mName = findViewById(R.id.name);

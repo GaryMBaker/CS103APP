@@ -1,36 +1,20 @@
 package gbdssmp.cs103.ames.ac.gbdssmp;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Date;
-public class ForumMessage { ////////////////////////////////////////////////////////////////////////////////////// //Declare class properties/data
-    private String messageText;
-    private String messageUser;
-    private long messageTime;
-    //////////////////////////////////////////////////////////////////////////////////////
-    //Constructor 1
-    public ForumMessage(String messageText, String messageUser) {
-        this.messageText = messageText;
-        this.messageUser = messageUser;
-        // Initialize to current time
-        messageTime = new Date().getTime(); }
-    //////////////////////////////////////////////////////////////////////////////////////
-    //Constructor 2
-    public ForumMessage() {
+public class ForumMessage  extends AppCompatActivity {
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
-    //////////////////////////////////////////////////////////////////////////////////////
-    //Getter and setters
-    public String getMessageText() { return messageText;
-    }
-    //
-    public void setMessageText(String messageText) { this.messageText = messageText;
-    }
-    //
-    public String getMessageUser() { return messageUser;
-    }
-    public void setMessageUser(String messageUser) { this.messageUser = messageUser;
-    }
-    //
-    public long getMessageTime() { return messageTime;
-    }
-    //
-    public void setMessageTime(long messageTime) { this.messageTime = messageTime;
-    } }
+}
