@@ -17,6 +17,18 @@ public class Forum extends AppCompatActivity {
 
     private ListView lv;
 
+    private String[] topics = {
+            "Animation Techniques",
+            "Student Social Events",
+            "Android Discussion",
+            "Web Development",
+            "AR/VR",
+            "Game Development",
+            "UX Discussion",
+            "Latest News",
+            "Tutor Talk Back"
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,21 +36,11 @@ public class Forum extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.messagesList);
 
-        String[] topics = {
-                "Animation Techniques",
-                "Student Social Events",
-                "Android Discussion",
-                "Web Development",
-                "AR/VR",
-                "Game Development",
-                "UX Discussion",
-                "Latest News",
-                "Tutor Talk Back"
-        };
+
 
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
-        List<String> your_array_list = new ArrayList<String>();
+        final List<String> your_array_list = new ArrayList<String>();
 
         for (int i=0; i<topics.length; i++) {
             your_array_list.add(topics[i]);
@@ -65,7 +67,7 @@ public class Forum extends AppCompatActivity {
                 Intent intent = new Intent(Forum.this, Forums.class);
 
 
-//                intent.putExtra("program_name", programs_array[position]);
+                intent.putExtra("program_name", topics[position]);
 
                 startActivity(intent);
             }

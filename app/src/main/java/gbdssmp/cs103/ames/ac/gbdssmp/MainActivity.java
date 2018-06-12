@@ -14,8 +14,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     private TextView username;
     private Button logoutBtn;
 
@@ -33,10 +31,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
             }
         };
-
 
         Button liveChat = (Button) findViewById(R.id.liveChat);
         liveChat.setOnClickListener(new View.OnClickListener() {
