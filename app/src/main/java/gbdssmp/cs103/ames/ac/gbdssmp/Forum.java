@@ -34,17 +34,21 @@ public class Forum extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
 
+        // set Variables to their view asset
         lv = (ListView) findViewById(R.id.messagesList);
-
-
 
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
+
+
+
+
         final List<String> your_array_list = new ArrayList<String>();
 
         for (int i=0; i<topics.length; i++) {
             your_array_list.add(topics[i]);
         }
+
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your
         // array as a third parameter.

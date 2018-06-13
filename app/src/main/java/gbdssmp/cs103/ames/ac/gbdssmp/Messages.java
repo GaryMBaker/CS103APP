@@ -4,9 +4,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,7 +12,7 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Forums extends AppCompatActivity {
+public class Messages extends AppCompatActivity {
 
     private FloatingActionButton sendBtn;
     private EditText input;
@@ -28,7 +26,7 @@ public class Forums extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forums);
+        setContentView(R.layout.activity_messages);
 
         program_name = getIntent().getExtras().getString("program_name");
 
@@ -44,14 +42,14 @@ public class Forums extends AppCompatActivity {
 
                 if (!input.getText().toString().isEmpty()) {
 
-                    FirebaseDatabase.getInstance().getReference().child("Forums").child(program_name = getIntent()
+                    FirebaseDatabase.getInstance().getReference().child("Messaging").child(program_name = getIntent()
                             .getExtras()
                             .getString("program_name"))
-                                .push()
-                                .setValue(new ChatMessage(input.getText().toString(),
-                                        FirebaseAuth.getInstance()
-                                                .getCurrentUser()
-                                                .getDisplayName()));
+                            .push()
+                            .setValue(new ChatMessage(input.getText().toString(),
+                                    FirebaseAuth.getInstance()
+                                            .getCurrentUser()
+                                            .getDisplayName()));
 
                     input.setText("");
                 }
@@ -60,7 +58,7 @@ public class Forums extends AppCompatActivity {
 
         listOfMessages = (ListView) findViewById(R.id.list_of_messages);
 
-        adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, R.layout.message, FirebaseDatabase.getInstance().getReference().child("Forums").child(program_name = getIntent().getExtras().getString("program_name"))) {
+        adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, R.layout.message, FirebaseDatabase.getInstance().getReference().child("Messaging").child(program_name = getIntent().getExtras().getString("program_name"))) {
             @Override
             protected void populateView(View view, ChatMessage model, int position) {
 
