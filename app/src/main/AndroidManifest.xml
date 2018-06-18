@@ -27,7 +27,8 @@
         <activity android:name=".Forum" />
         <activity android:name=".Forums" />
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".Messages"></activity>
+        <activity android:name=".Messages" />
+        <activity android:name=".UserList"></activity>
     </application>
 
 </manifest>

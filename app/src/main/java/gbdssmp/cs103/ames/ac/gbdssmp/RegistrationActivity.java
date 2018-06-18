@@ -110,7 +110,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                      .getInstance()
                                      .getReference()
                                      .child("users")
-                                     .child(userId);
+                                     .child(name);
 
                              Map userInfo = new HashMap();
                              userInfo.put("email", email);
@@ -126,9 +126,6 @@ public class RegistrationActivity extends AppCompatActivity {
                  });
              }
         });
-
-
-
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override

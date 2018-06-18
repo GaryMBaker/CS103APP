@@ -40,9 +40,6 @@ public class Forum extends AppCompatActivity {
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
 
-
-
-
         final List<String> your_array_list = new ArrayList<String>();
 
         for (int i=0; i<topics.length; i++) {

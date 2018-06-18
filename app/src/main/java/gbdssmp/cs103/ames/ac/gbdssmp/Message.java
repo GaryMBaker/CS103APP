@@ -6,16 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.firebase.client.annotations.NotNull;
 import com.firebase.ui.database.FirebaseListAdapter;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Message extends AppCompatActivity {
 
@@ -45,17 +44,10 @@ public class Message extends AppCompatActivity {
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
 
-
-
-
-
-
-
         final List<String> your_array_list = new ArrayList<String>();
 
         for (int i=0; i<2; i++) {
-
-            your_array_list.add( FirebaseDatabase.getInstance().getReference().child("Messaging").toString() );
+            your_array_list.add( FirebaseDatabase.getInstance().getReference().child("users").child("Gary").getKey() );
         }
 
         // This is the array adapter, it takes the context of the activity as a
@@ -65,6 +57,8 @@ public class Message extends AppCompatActivity {
                 this,
                 android.R.layout.simple_list_item_1,
                 your_array_list );
+
+
 
         lv.setAdapter(arrayAdapter);
 
