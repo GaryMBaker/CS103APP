@@ -14,7 +14,7 @@ public class UserList extends AppCompatActivity {
 
     private DatabaseReference userDatabase;
     private TextView listUser;
-    private String userdata;
+    private String userdata, builtUpUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class UserList extends AppCompatActivity {
                          builtUpUsers = builtUpUsers + userName + "\n";
                      }
 
-                     listUser.setText(builtUpUsers);
+
             }
 
             @Override
@@ -46,7 +46,7 @@ public class UserList extends AppCompatActivity {
             }
         });
 
-
+        listUser.setText(builtUpUsers);
 
 
     }

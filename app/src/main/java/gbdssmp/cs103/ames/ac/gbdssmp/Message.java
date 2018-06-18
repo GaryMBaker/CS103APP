@@ -8,10 +8,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.annotations.NotNull;
+import com.firebase.ui.database.FirebaseArray;
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +27,15 @@ import java.util.List;
 public class Message extends AppCompatActivity {
 
 
-    private ListView lv;
+    public ListView lv;
 
-    private String[] topics = {
+    public DatabaseReference userDatabase;
+    public TextView listUser;
+    public String userdata;
+    public String builtUpUsers;
+    public List<String> your_array_list = new ArrayList<String>();
+
+    public String[] topics = {
             "gary",
             "Shea",
             "Android Discussion",
@@ -36,7 +50,7 @@ public class Message extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forum);
+        setContentView(R.layout.activity_message);
 
         // set Variables to their view asset
         lv = (ListView) findViewById(R.id.messagesList);
@@ -44,21 +58,45 @@ public class Message extends AppCompatActivity {
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
 
-        final List<String> your_array_list = new ArrayList<String>();
+        userDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+        userDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                userdata = dataSnapshot.getValue().toString();
+//                listUser.setText(userdata);
+//                String builtUpUsers = "";
+                for (DataSnapshot datas: dataSnapshot.getChildren()) {
+                    String userName = datas.getKey();
 
-        for (int i=0; i<2; i++) {
-            your_array_list.add( FirebaseDatabase.getInstance().getReference().child("users").child("Gary").getKey() );
-        }
+                    builtUpUsers = userName;
+
+                    your_array_list.add(builtUpUsers.toString());
+
+                    Toast.makeText(getApplicationContext(), your_array_list.toString(), Toast.LENGTH_LONG).show();
+                }
+//                Toast.makeText(getApplicationContext(), builtUpUsers, Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+//
+//        for (int i=0; i<2; i++) {
+//            your_array_list.add("Shea");
+//        }
 
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your
         // array as a third parameter.
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
                 your_array_list );
-
-
 
         lv.setAdapter(arrayAdapter);
 
@@ -72,7 +110,6 @@ public class Message extends AppCompatActivity {
 
                 // Explicitly use intent to open new Activity
                 Intent intent = new Intent(Message.this, Messages.class);
-
 
                 intent.putExtra("program_name", topics[position]);
 
