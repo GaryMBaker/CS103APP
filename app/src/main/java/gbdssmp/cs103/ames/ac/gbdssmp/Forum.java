@@ -1,6 +1,7 @@
 package gbdssmp.cs103.ames.ac.gbdssmp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -63,7 +64,7 @@ public class Forum extends AppCompatActivity {
                 // print out title of program
                 TextView tvItemClicked = (TextView) itemClicked;
                 String strItemClicked = tvItemClicked.getText().toString();
-
+                tvItemClicked.setTextColor(Color.parseColor("#880088"));
                 // Explicitly use intent to open new Activity
                 Intent intent = new Intent(Forum.this, Forums.class);
 

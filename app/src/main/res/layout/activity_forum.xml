@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff"
+        android:divider="#ffff00"
+        android:listSelector="#ffff00"
         android:id="@+id/messagesList">
 
     </ListView>
