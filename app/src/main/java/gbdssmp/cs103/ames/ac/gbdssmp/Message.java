@@ -8,7 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,10 +31,9 @@ public class Message extends AppCompatActivity {
     public TextView listUser;
     public String userdata;
     public String builtUpUsers;
-    public List<String> your_array_list = new ArrayList<String>();
+    public ArrayList<String> your_array_list = new ArrayList<String>();
 
-    public String[] topics = {
-    };
+    public String[] topics = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,22 +46,51 @@ public class Message extends AppCompatActivity {
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //How to fetch or query data from Firebase database?
+        //Step 1: Declare a database reference
         userDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+        //Step 2: Set listener for database reference
         userDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                //Write our functions, codes here
+                //dataSnapShot is an object containing all the "users" information under "users" node
+                //getValue() method is to collect all information
                 userdata = dataSnapshot.getValue().toString();
-                for (DataSnapshot datas: dataSnapshot.getChildren()) {
+
+                String allUsers = "";
+
+                //Loop through all the users in the "users" database reference
+                for (DataSnapshot datas : dataSnapshot.getChildren()) {
+                    //"datas" represent the each "user"
+                    //Get username of each user
                     String userName = datas.getKey();
 
+                    //Assign "username" to "builtupUsers"
                     builtUpUsers = userName;
+                    allUsers = allUsers + userName + "\n";
+
+                    //Add userName to the array list
                     your_array_list.add(builtUpUsers.toString());
                 }
+
+                //Test
+//                Toast.makeText(getApplicationContext(), "Users:\n" + allUsers, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Users:\n" + FirebaseAuth.getInstance().getCurrentUser().getDisplayName(), Toast.LENGTH_LONG).show();
+
+
+
+                //Display all userNames on the listView
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Message.this, android.R.layout.simple_list_item_1, your_array_list);
+                //Insert arrayAdapter to listview
+                lv.setAdapter(arrayAdapter);
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //When database reference has error, not existing, ...
             }
         });
 
@@ -71,7 +101,7 @@ public class Message extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
-                your_array_list );
+                your_array_list);
 
         lv.setAdapter(arrayAdapter);
 
