@@ -1,6 +1,9 @@
 package gbdssmp.cs103.ames.ac.gbdssmp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,9 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class Message extends AppCompatActivity {
@@ -75,12 +76,6 @@ public class Message extends AppCompatActivity {
                     your_array_list.add(builtUpUsers.toString());
                 }
 
-                //Test
-//                Toast.makeText(getApplicationContext(), "Users:\n" + allUsers, Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "Users:\n" + FirebaseAuth.getInstance().getCurrentUser().getDisplayName(), Toast.LENGTH_LONG).show();
-
-
-
                 //Display all userNames on the listView
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Message.this, android.R.layout.simple_list_item_1, your_array_list);
                 //Insert arrayAdapter to listview
@@ -108,17 +103,17 @@ public class Message extends AppCompatActivity {
         // create action from onclick method to view each program
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrate.vibrate(120);
+
+                MediaPlayer.create(getApplicationContext(),R.raw.open).start();
 
                 // print out title of program
                 TextView tvItemClicked = (TextView) itemClicked;
-                String strItemClicked = tvItemClicked.getText().toString();
 
                 // Explicitly use intent to open new Activity
                 Intent intent = new Intent(Message.this, Messages.class);
-
-
                 intent.putExtra("program_name", your_array_list.toArray(new String[0])[position]);
-
                 startActivity(intent);
             }
         });

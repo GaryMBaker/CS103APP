@@ -7,14 +7,6 @@
     android:orientation="vertical"
     tools:context=".Messages">
 
-    <TextView
-        android:id="@+id/selected_program"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:textColor="#4b086c"
-        android:textSize="17sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,6 +1,9 @@
 package gbdssmp.cs103.ames.ac.gbdssmp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         username = (TextView) findViewById(R.id.userName);
         logoutBtn = (Button) findViewById(R.id.logoutBtn);
 
+
         firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -38,8 +42,13 @@ public class MainActivity extends AppCompatActivity {
         liveChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrate.vibrate(120);
+
+                MediaPlayer.create(getApplicationContext(),R.raw.open).start();
                 Intent intent = new Intent(MainActivity.this, Message.class);
-                startActivity(intent);
+
+                startActivity(intent);// Vibrate for 500 milliseconds
             }
         });
 
@@ -47,7 +56,12 @@ public class MainActivity extends AppCompatActivity {
         forum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrate.vibrate(120);
+
+                MediaPlayer.create(getApplicationContext(),R.raw.open).start();
                 Intent intent = new Intent(MainActivity.this, Forum.class);
+
                 startActivity(intent);
             }
         });

@@ -1,5 +1,8 @@
 package gbdssmp.cs103.ames.ac.gbdssmp;
 
+import android.content.Context;
+import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,6 +44,11 @@ public class Forums extends AppCompatActivity {
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrate.vibrate(120);
+
+                MediaPlayer.create(getApplicationContext(),R.raw.open).start();
+
 
                 if (!input.getText().toString().isEmpty()) {
 

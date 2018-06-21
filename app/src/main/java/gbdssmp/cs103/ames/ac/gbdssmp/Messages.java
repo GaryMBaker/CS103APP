@@ -1,5 +1,8 @@
 package gbdssmp.cs103.ames.ac.gbdssmp;
 
+import android.content.Context;
+import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +16,8 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.File;
 
 public class Messages extends AppCompatActivity {
 
@@ -35,22 +40,17 @@ public class Messages extends AppCompatActivity {
 
         selected_program = (TextView) findViewById(R.id.selected_program);
         sendBtn = (FloatingActionButton) findViewById(R.id.sendBtn);
-        input = (EditText) findViewById(R.id.input);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // Name, email address etc
-            String name = user.getDisplayName();
-            selected_program.setText(name);
 
-//            Toast.makeText(getApplicationContext(), name, Toast.LENGTH_LONG).show();
-        }
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrate.vibrate(120);
+
+                MediaPlayer.create(getApplicationContext(),R.raw.open).start();
 
                 if (!input.getText().toString().isEmpty()) {
 
@@ -59,22 +59,23 @@ public class Messages extends AppCompatActivity {
                             .child("Messaging")
                             .child(program_name = getIntent()
                                     .getExtras()
-                                    .getString("program_name") + "_" + FirebaseAuth.getInstance().getCurrentUser().getDisplayName())
+                                    .getString("program_name") + "_" + currentUser)
                             .push()
                             .setValue(new ChatMessage(input.getText().toString(),
                                     FirebaseAuth.getInstance()
                                             .getCurrentUser()
-                                            .getDisplayName()));
+                                            .getDisplayName()
+                            )
+                    );
 
                     FirebaseDatabase.getInstance()
                             .getReference()
                             .child("Messaging")
-                            .child( currentUser + "_" + getIntent().getExtras().getString( "program_name"))
+                            .child( currentUser + "_" + getIntent()
+                                    .getExtras()
+                                    .getString( "program_name"))
                             .push()
-                            .setValue(new ChatMessage(input.getText().toString(),
-                                    FirebaseAuth.getInstance()
-                                            .getCurrentUser()
-                                            .getDisplayName()));
+                            .setValue(new ChatMessage(input.getText().toString(), currentUser));
 
                     input.setText("");
                 }
@@ -106,7 +107,8 @@ public class Messages extends AppCompatActivity {
                 messageUser.setText(model.getMessageUser());
                 userName.setText(model.getMessageUser());
 
-                messageTime.setText(android.text.format.DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
+                messageTime.setText(
+                        android.text.format.DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
                         model.getMessageTime()));
             }
         };

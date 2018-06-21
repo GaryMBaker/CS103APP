@@ -1,7 +1,10 @@
 package gbdssmp.cs103.ames.ac.gbdssmp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -60,6 +63,10 @@ public class Forum extends AppCompatActivity {
         // create action from onclick method to view each program
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrate.vibrate(120);
+
+                MediaPlayer.create(getApplicationContext(),R.raw.open).start();
 
                 // print out title of program
                 TextView tvItemClicked = (TextView) itemClicked;

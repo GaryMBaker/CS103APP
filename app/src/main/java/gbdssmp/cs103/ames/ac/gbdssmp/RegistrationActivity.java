@@ -1,6 +1,9 @@
 package gbdssmp.cs103.ames.ac.gbdssmp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -78,6 +81,10 @@ public class RegistrationActivity extends AppCompatActivity {
         mRegistration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+             Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+             vibrate.vibrate(120);
+
+             MediaPlayer.create(getApplicationContext(),R.raw.open).start();
 
              final String name = mName.getText().toString();
              final String email = mEmail.getText().toString();
@@ -130,6 +137,10 @@ public class RegistrationActivity extends AppCompatActivity {
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrate.vibrate(120);
+
+                MediaPlayer.create(getApplicationContext(),R.raw.open).start();
 
                 final String email = loginEmail.getText().toString();
                 final String password = loginPassword.getText().toString();
