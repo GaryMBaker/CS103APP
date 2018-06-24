@@ -2,6 +2,7 @@ package gbdssmp.cs103.ames.ac.gbdssmp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
@@ -86,9 +87,9 @@ public class Forums extends AppCompatActivity {
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
 
-
+messageUser.setTextColor(Color.parseColor("#880088"));
                 userName.setText(model.getMessageUser());
-
+userName.setTextColor(Color.parseColor("#ffff00"));
                 messageTime.setText(android.text.format.DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
                         model.getMessageTime()));
             }

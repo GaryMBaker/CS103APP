@@ -2,6 +2,7 @@ package gbdssmp.cs103.ames.ac.gbdssmp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
@@ -110,7 +111,7 @@ public class Messages extends AppCompatActivity {
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
                 userName.setText(model.getMessageUser());
-
+                messageUser.setTextColor(Color.parseColor("#880088"));
                 messageTime.setText(
                         android.text.format.DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
                         model.getMessageTime()));

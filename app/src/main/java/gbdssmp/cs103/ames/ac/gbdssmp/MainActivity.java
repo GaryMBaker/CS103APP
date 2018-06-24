@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         username = (TextView) findViewById(R.id.userName);
-        logoutBtn = (Button) findViewById(R.id.logoutBtn);
+//        logoutBtn = (Button) findViewById(R.id.logoutBtn);
 
 
         firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -69,18 +69,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(),"Bye Bye " + username.getText().toString(), Toast.LENGTH_LONG).show();
-                return;
-            }
-
-        });
+//        logoutBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
+//                Toast.makeText(getApplicationContext(),"Bye Bye " + username.getText().toString(), Toast.LENGTH_LONG).show();
+//                return;
+//            }
+//
+//        });
 
     }
     @Override

@@ -9,15 +9,15 @@
     android:background="#fff"
     android:weightSum="2" >
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
-        android:layout_below="@id/forum"
-        android:background="#551a8b"
-        android:textColor="#ffff00"
-        android:id="@+id/logoutBtn"
-        android:text="Logout"/>
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="130dp"-->
+        <!--android:layout_below="@id/forum"-->
+        <!--android:background="#551a8b"-->
+        <!--android:textColor="#ffff00"-->
+        <!--android:id="@+id/logoutBtn"-->
+        <!--android:text="Logout"/>-->
 
     <ImageView
         android:id="@+id/amesLogo"
