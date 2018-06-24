@@ -26,7 +26,7 @@ import java.io.File;
 public class Messages extends AppCompatActivity {
 
     private FloatingActionButton sendBtn;
-    private EditText input;
+    public EditText input;
 
     private FirebaseListAdapter<ChatMessage> adapter, adapterReceive;
     private ListView listOfMessages;
@@ -44,7 +44,7 @@ public class Messages extends AppCompatActivity {
 
         selected_program = (TextView) findViewById(R.id.selected_program);
         sendBtn = (FloatingActionButton) findViewById(R.id.sendBtn);
-
+        input = (EditText) findViewById(R.id.input);
         currentUser = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -141,7 +141,7 @@ public class Messages extends AppCompatActivity {
         Intent intent = new Intent(Messages.this, RegistrationActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        Toast.makeText(getApplicationContext(),"Bye Bye " , Toast.LENGTH_LONG).show();
+
         finish();
     }
 }

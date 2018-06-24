@@ -58,6 +58,7 @@ public class Message extends AppCompatActivity {
         userDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println(dataSnapshot.getValue());
                 //Write our functions, codes here
                 //dataSnapShot is an object containing all the "users" information under "users" node
                 //getValue() method is to collect all information

@@ -47,8 +47,7 @@ public class Forum extends AppCompatActivity {
         // set Variables to their view asset
         lv = (ListView) findViewById(R.id.messagesList);
 
-        // Instanciating an array list (you don't need to do this,
-        // you already have yours).
+
 
         final List<String> your_array_list = new ArrayList<String>();
 

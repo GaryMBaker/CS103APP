@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/college"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10dp"
         android:paddingRight="5dp"/>
 
     <!--<TextView-->
@@ -43,11 +43,13 @@
         android:id="@+id/liveChat"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/amesLogo"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="80dp"
-        android:background="@drawable/chat" />
+        android:layout_marginStart="70dp"
+        android:background="@drawable/chat"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="80dp" />
 
     <Button
         android:id="@+id/forum"
@@ -57,7 +59,9 @@
         android:layout_below="@+id/amesLogo"
         android:layout_marginStart="14dp"
         android:layout_toEndOf="@+id/liveChat"
-        android:background="@drawable/forum" />
+        android:background="@drawable/forum"
+        android:layout_toRightOf="@+id/liveChat"
+        android:layout_marginLeft="14dp" />
 
 
     <TextView

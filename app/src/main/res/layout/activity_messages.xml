@@ -26,6 +26,13 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Upload" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,6 +40,7 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/sendBtn"
+            android:layout_marginBottom="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -46,12 +54,14 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#fff"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_toLeftOf="@+id/sendBtn"
             android:layout_alignParentLeft="true">
 
             <EditText
+                android:layout_marginBottom="20dp"
                 android:id="@+id/input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +76,22 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="15dp"
+            android:background="#fff"
             android:divider="@android:color/transparent"
             android:layout_alignParentLeft="true" />
+
+        <Button
+            android:id="@+id/btnChoose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_weight="1"
+            android:text="Choose"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="13dp" />
+
     </RelativeLayout>
+
 </LinearLayout>
