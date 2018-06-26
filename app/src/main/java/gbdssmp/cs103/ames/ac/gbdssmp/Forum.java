@@ -84,7 +84,8 @@ public class Forum extends AppCompatActivity {
                 intent.putExtra("program_name", topics[position]);
 
                 startActivity(intent);
-            }
+                }
+
         });
     }
     @Override

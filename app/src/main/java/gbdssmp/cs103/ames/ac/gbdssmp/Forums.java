@@ -46,7 +46,7 @@ public class Forums extends AppCompatActivity {
         input = (EditText) findViewById(R.id.input);
 
         selected_program.setText(program_name);
-
+        selected_program.setAllCaps(true);
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,6 +70,7 @@ public class Forums extends AppCompatActivity {
                     input.setText("");
                 }
             }
+
         });
 
         listOfMessages = (ListView) findViewById(R.id.list_of_messages);
@@ -86,10 +87,9 @@ public class Forums extends AppCompatActivity {
 
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
-
-messageUser.setTextColor(Color.parseColor("#880088"));
+                messageUser.setTextColor(Color.parseColor("#880088"));
                 userName.setText(model.getMessageUser());
-userName.setTextColor(Color.parseColor("#ffff00"));
+                userName.setTextColor(Color.parseColor("#880088"));
                 messageTime.setText(android.text.format.DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
                         model.getMessageTime()));
             }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -132,6 +133,7 @@ public class RegistrationActivity extends AppCompatActivity {
                      }
                  });
              }
+
         });
 
         mLogin.setOnClickListener(new View.OnClickListener() {

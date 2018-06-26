@@ -7,10 +7,12 @@ import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.TransitionSet;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,10 +55,17 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(intent);// Vibrate for 500 milliseconds
             }
+            MediaPlayer mediaPlayer;
+            protected void onStop(){
+                mediaPlayer.release();
+                mediaPlayer = null;
+            }
         });
 
         Button forum = (Button) findViewById(R.id.forum);
+
         forum.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

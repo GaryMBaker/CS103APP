@@ -85,6 +85,7 @@ public class Messages extends AppCompatActivity {
                     input.setText("");
                 }
             }
+
         });
 
         listOfMessages = (ListView) findViewById(R.id.list_of_messages);

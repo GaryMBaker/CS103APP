@@ -120,8 +120,10 @@ public class Message extends AppCompatActivity {
                 intent.putExtra("program_name", your_array_list.toArray(new String[0])[position]);
                 startActivity(intent);
             }
+
         });
         }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
