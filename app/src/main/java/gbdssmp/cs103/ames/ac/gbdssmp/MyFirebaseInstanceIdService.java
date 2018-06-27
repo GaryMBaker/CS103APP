@@ -16,7 +16,7 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
      * The Application's current Instance ID token is no longer valid
      * and thus a new one must be requested.
      */
-
+//test
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
     }
